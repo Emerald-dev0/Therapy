@@ -228,18 +228,6 @@
   .bonus-card .val{font-size:0.82rem; color:var(--terracotta); font-weight:700;}
   .bonus-card .val s{color:var(--ink-soft); font-weight:400; margin-right:6px;}
 
-  /* signature: script cards strip */
-  .script-strip{margin-top:60px; overflow:hidden; padding:26px 0; background:var(--navy); border-radius:20px;}
-  .script-track{display:flex; gap:20px; width:max-content; animation:scrollX 34s linear infinite;}
-  .script-strip:hover .script-track{animation-play-state:paused;}
-  @keyframes scrollX{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
-  .script-card{
-    flex-shrink:0; width:280px; background:var(--navy-2); border:1px solid rgba(201,162,75,0.2); border-radius:14px;
-    padding:20px; color:var(--cream);
-  }
-  .script-card .k{font-size:0.68rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold-light); font-weight:700;}
-  .script-card p{font-family:'Newsreader'; font-style:italic; font-size:0.98rem; color:rgba(251,245,233,0.9); margin-top:10px; line-height:1.5;}
-
   /* ===== PRICING ===== */
   .pricing{background:linear-gradient(180deg, var(--cream-2), var(--cream)); padding:100px 0;}
   .pricing-inner{max-width:920px; margin:0 auto;}
@@ -615,12 +603,6 @@
         <div class="val"><s>$8</s>Free today</div>
       </div>
     </div>
-
-    <div class="script-strip">
-      <div class="script-track" id="scriptTrack">
-        <!-- duplicated via JS for seamless loop -->
-      </div>
-    </div>
   </div>
 </section>
 
@@ -745,20 +727,6 @@
       if(!isOpen){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
     });
   });
-
-  // Script strip content
-  const scripts = [
-    {k:"Script 01 — Reopening", t:"\u201cI don\u2019t want to fix this over text. Can we sit down tonight, just to talk — no pressure to solve it all at once?\u201d"},
-    {k:"Script 02 — Mid-Fight Reset", t:"\u201cI want to keep talking, but I need two minutes first so I don\u2019t say something I regret.\u201d"},
-    {k:"Script 03 — Real Apology", t:"\u201cI see how that landed on you, and I understand why it hurt. That wasn\u2019t okay, and I want to do better.\u201d"},
-    {k:"Script 04 — Naming a Need", t:"\u201cThis isn\u2019t a complaint — there\u2019s just something I need more of from us, and I want to name it before it turns into resentment.\u201d"},
-    {k:"Script 05 — Trust Check-In", t:"\u201cOn a scale of one to ten, how close do you feel to me this week? What would move it up one point?\u201d"},
-    {k:"Script 06 — Are We Okay", t:"\u201cThings have felt a little distant lately, and I just wanted to check in — are we okay?\u201d"},
-    {k:"Script 07 — Weekly Reset", t:"\u201cCan we take fifteen minutes this week, just the two of us, to talk about how we\u2019re actually doing?\u201d"},
-  ];
-  const track = document.getElementById('scriptTrack');
-  const build = () => scripts.map(s=>`<div class="script-card"><div class="k">${s.k}</div><p>${s.t}</p></div>`).join('');
-  track.innerHTML = build() + build();
 </script>
 
 </body>
